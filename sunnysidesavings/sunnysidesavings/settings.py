@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "price_checker",
     "bootstrap5",
+    "fontawesomefree",
 ]
 
 MIDDLEWARE = [
