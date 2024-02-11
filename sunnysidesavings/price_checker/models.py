@@ -17,8 +17,6 @@ class GroceryItem(models.Model):
                 + " "
                 + str(self.price)
                 + " "
-                + self.grocery_store
-                + " "
                 + str(self.date_start)
                 + " "
                 + str(self.date_end)

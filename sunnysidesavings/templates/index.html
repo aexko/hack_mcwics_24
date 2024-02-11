@@ -5,6 +5,15 @@
     {# for bootstrap5 #}
     {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"></script>
     {# for fontawesome icons #}
     <link
             href="{% static 'fontawesomefree/css/fontawesome.css' %}"
@@ -32,30 +41,89 @@
 <body>
 
 {# Navbar #}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">SunnySideSavings</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Future features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
+                    >Login/Register</a
+                    >
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <div class="container">
     <div class="p-3"></div>
-    <h1>Sunny Side Savings</h1>
+    {#  adding the title and next to it at the end a cart icon #}
+    <div class="d-flex justify-content-between">
+        <h1>SunnySideSavings</h1>
+        {#        <a href="{% url 'cart' %}">#}
+        <i class="fa-solid fa-cart-shopping"></i>
+        {#        </a>#}
+    </div>
 
-    <button><i class="fa-solid fa-cart-shopping"></i></button>
-    <button><i class="fa-solid fa-plus"></i></button>
 
-    {# adding space padding #}
     <div class="p-3"></div>
 
-    {# search bar #}
-    <form class="d-flex">
+    {# make a centered search bar that is reactive to each input the user puts, it makes a request on the list of an item based on the name that the user puts in#}
+    <form class="d-flex" action="{% url 'get_grocery_items' %}" method="GET">
         <input
                 class="form-control me-2"
                 type="search"
                 placeholder="Search"
+                id="submit"
                 aria-label="Search"
+                type="button"
         />
         <button class="btn btn-outline-success" type="submit">
             <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        {% block content %}{% endblock %}
     </form>
+
+
+    <div class="p-3"></div>
+
+    {# results found for the user #}
+    <div class="d-flex justify-content-between">
+        <h3>Results found</h3>
+        <i class="fa-solid fa-chart-bar"></i>
+    </div>
+
+    {# loop that loops through the list of items that the user searched for #}
+    {% for item in item_list %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{ item.image.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <p class="card-text">{{ item.price }}</p>
+            <a href="#" class="btn btn-primary">Add to cart</a>
+        </div>
+    </div>
+    {% endfor %}
 </div>
 </body>
 </html>

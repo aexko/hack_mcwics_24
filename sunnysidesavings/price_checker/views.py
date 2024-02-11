@@ -1,32 +1,27 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from .models import GroceryItem, GroceryStore
 
 
-# Function to simply render the index.html page
+# rendering a list of grocery items
 def price_checker_render(request):
+    return render(request, "index.html")
+
+# return all grocery items
+def get_grocery_items(request):
     grocery_items = GroceryItem.objects.all()
-    context = {"grocery_items": grocery_items}
-    return render(request, "index.html", context)
+    print(grocery_items)
+    return HttpResponse(grocery_items)
 
-
-
-# Function that gets the grocery items based on the user input in the
-# search bar, and it is based the the name of the grocery item
+# rendering a list of grocery items by name
 def get_grocery_items_by_name(request):
-    if request.method == "GET":
-        grocery_item_name = request.GET["grocery_item_name"]
-        grocery_items = GroceryItem.objects.filter(name__icontains=grocery_item_name)
-        context = {"grocery_items": grocery_items}
-        return render(request, "index.html", context)
-    return render(request, "index.html")
+    grocery_items = GroceryItem.objects.filter(name__icontains=request.GET["name"])
+    print(grocery_items)
+    return HttpResponse(grocery_items)
 
-
-# Function that gets the grocery items based on the user input in the
-# search bar, and it is based the the name of the grocery store
+# rendering a list of grocery items by grocery stores
 def get_grocery_items_by_grocery_stores(request):
-    if request.method == "GET":
-        grocery_store_name = request.GET["grocery_store_name"]
-        grocery_items = GroceryItem.objects.filter(grocery_store__name__icontains=grocery_store_name)
-        context = {"grocery_items": grocery_items}
-        return render(request, "index.html", context)
-    return render(request, "index.html")
+    grocery_items = GroceryItem.objects.filter(grocery_store__name__icontains=request.GET["name"])
+    print(grocery_items)
+    return HttpResponse(grocery_items)
+
