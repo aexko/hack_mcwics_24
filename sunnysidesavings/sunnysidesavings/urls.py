@@ -7,3 +7,4 @@ urlpatterns = [
     path("price-checker/", include("price_checker.urls"), name="home"),
     path("colors.css", BootstrapColorsView.as_view(), name="colors"),
 ]
+

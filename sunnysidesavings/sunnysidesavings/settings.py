@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "bootstrap_colors",
 ]
 
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -185,3 +186,6 @@ BOOTSTRAP_THEME_COLORS = ["#ffffff", "#0b5ed7", "#0a58ca"]
 STATICFILES_DIRS = [
     BASE_DIR / "staticfiles",
 ]
+
+# to load images from the static directory
+MEDIA_URL = "/staticfiles/images/"
