@@ -175,3 +175,7 @@ BOOTSTRAP5 = {
         "inline": "bootstrap5.renderers.InlineFieldRenderer",
     },
 }
+# To load static files from the static directory
+STATICFILES_DIRS = [
+    BASE_DIR / "staticfiles",
+]
