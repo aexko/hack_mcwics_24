@@ -17,9 +17,8 @@ def get_grocery_items(request):
 def get_grocery_items_by_name(request):
     grocery_items = GroceryItem.objects.all()
     print(grocery_items)
-    print("request", request)
-    print("request.GET", request.GET)
-    return ""
+    print("request", request.GET["search"])
+    return HttpResponse(grocery_items)
 
 
 # rendering a list of grocery items by grocery stores
