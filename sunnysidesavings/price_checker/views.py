@@ -33,5 +33,12 @@ class GroceryItemView(ListView):
     def get_queryset(self):
         query = self.request.GET.get("search")
         print("query: ", query)
-        print("things returned: ", GroceryItem.objects.filter(name__icontains=query).order_by("price_per_unit"))
-        return GroceryItem.objects.filter(name__icontains=query).order_by("price_per_unit")
+        print(
+            "things returned: ",
+            GroceryItem.objects.filter(name__icontains=query).order_by(
+                "price_per_unit"
+            ),
+        )
+        return GroceryItem.objects.filter(name__icontains=query).order_by(
+            "price_per_unit"
+        )

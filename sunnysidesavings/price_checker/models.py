@@ -10,21 +10,23 @@ class GroceryItem(models.Model):
     quantity = models.IntegerField()
     price_per_unit = models.DecimalField(max_digits=5, decimal_places=2)
     image = models.ImageField(upload_to="images/", blank=True)
-    grocery_store = models.ForeignKey("GroceryStore", on_delete=models.CASCADE, null=True, blank=True)
+    grocery_store = models.ForeignKey(
+        "GroceryStore", on_delete=models.CASCADE, null=True, blank=True
+    )
 
     def __str__(self):
         return (
-                self.name
-                + " "
-                + str(self.price)
-                + " "
-                + str(self.date_start)
-                + " "
-                + str(self.date_end)
-                + " "
-                + str(self.quantity)
-                + " "
-                + str(self.price_per_unit)
+            self.name
+            + " "
+            + str(self.price)
+            + " "
+            + str(self.date_start)
+            + " "
+            + str(self.date_end)
+            + " "
+            + str(self.quantity)
+            + " "
+            + str(self.price_per_unit)
         )
 
 
@@ -39,13 +41,13 @@ class GroceryStore(models.Model):
 
     def __str__(self):
         return (
-                self.name
-                + " "
-                + self.address
-                + " "
-                + self.city
-                + " "
-                + self.state
-                + " "
-                + self.zip_code
+            self.name
+            + " "
+            + self.address
+            + " "
+            + self.city
+            + " "
+            + self.state
+            + " "
+            + self.zip_code
         )
