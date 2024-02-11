@@ -19,6 +19,8 @@
     {% comment %} for bootstrap5 {% endcomment %}
     {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
 
+    {% comment %} for fontawesome icons {% endcomment %}
+    <link
       href="{% static 'fontawesomefree/css/fontawesome.css' %}"
       rel="stylesheet"
       type="text/css"
@@ -40,3 +42,6 @@
     {% comment %} load custom css {% endcomment %}
     <link rel="stylesheet" href="{% static 'style.css' %}">  
 
+      <button><i class="fa-solid fa-cart-shopping"></i></button>
+      <button><i class="fa-solid fa-plus"></i></button>
+        <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
