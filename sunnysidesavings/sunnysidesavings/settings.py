@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "price_checker",
     "bootstrap5",
     "fontawesomefree",
+    "bootstrap_colors",
 ]
 
 MIDDLEWARE = [
@@ -175,6 +176,11 @@ BOOTSTRAP5 = {
         "inline": "bootstrap5.renderers.InlineFieldRenderer",
     },
 }
+
+# To change Bootstrap's default theme colors
+BOOTSTRAP_THEME_COLORS = ["#ffffff", "#0b5ed7", "#0a58ca"]
+# BOOTSTRAP_THEME_COLORS = ['#880808', '#0000FF', '#AAFF00']
+
 # To load static files from the static directory
 STATICFILES_DIRS = [
     BASE_DIR / "staticfiles",
