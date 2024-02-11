@@ -22,55 +22,6 @@
       type="text/css"
     />
 
-    {% comment %} to change bootstrap default theme {% endcomment %} {% comment
-    %}
-    <link rel="stylesheet" type="text/css" href="{% url 'colors' %}" />
-    {% endcomment %} {% comment %} load custom css {% endcomment %}
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
-  </head>
-  <body>
-    {% comment %} navbar {% endcomment %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'price_checker' %}"
-          >Sunny Side Savings</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="{% url 'price_checker' %}"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'price_checker' %}"
-                >Price Checker</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'price_checker' %}">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'price_checker' %}">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
 
     <div class="container">
       <div class="p-3"></div>
