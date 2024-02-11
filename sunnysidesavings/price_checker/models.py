@@ -10,6 +10,7 @@ class GroceryItem(models.Model):
     quantity = models.IntegerField()
     price_per_unit = models.DecimalField(max_digits=5, decimal_places=2)
     image = models.ImageField(upload_to="images/", blank=True)
+    grocery_store = models.ForeignKey("GroceryStore", on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return (
@@ -30,10 +31,10 @@ class GroceryItem(models.Model):
 # Create a class for the grocery store
 class GroceryStore(models.Model):
     name = models.CharField(max_length=100)
-    address = models.CharField(max_length=100)
-    city = models.CharField(max_length=100)
-    state = models.CharField(max_length=100)
-    zip_code = models.CharField(max_length=100)
+    address = models.CharField(max_length=100, blank=True)
+    city = models.CharField(max_length=100, blank=True)
+    state = models.CharField(max_length=100, blank=True)
+    zip_code = models.CharField(max_length=100, blank=True)
     logo = models.ImageField(upload_to="images/", blank=True)
 
     def __str__(self):
