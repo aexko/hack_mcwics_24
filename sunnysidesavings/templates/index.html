@@ -1,51 +1,61 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>{% block title %}{% endblock %}</title>
-    {% comment %} for bootstrap5 {% endcomment %} {% load bootstrap5 %} {%
-    bootstrap_css %} {% bootstrap_javascript %} {% comment %} for fontawesome
-    icons {% endcomment %}
+<html lang="en">
+<head>
+    {# for bootstrap5 #}
+    {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+
+    {# for fontawesome icons #}
     <link
-      href="{% static 'fontawesomefree/css/fontawesome.css' %}"
-      rel="stylesheet"
-      type="text/css"
+            href="{% static 'fontawesomefree/css/fontawesome.css' %}"
+            rel="stylesheet"
+            type="text/css"
     />
     <link
-      href="{% static 'fontawesomefree/css/brands.css' %}"
-      rel="stylesheet"
-      type="text/css"
+            href="{% static 'fontawesomefree/css/brands.css' %}"
+            rel="stylesheet"
+            type="text/css"
     />
     <link
-      href="{% static 'fontawesomefree/css/solid.css' %}"
-      rel="stylesheet"
-      type="text/css"
+            href="{% static 'fontawesomefree/css/solid.css' %}"
+            rel="stylesheet"
+            type="text/css"
     />
 
+    {# to change bootstrap default theme #}
+    <link rel="stylesheet" type="text/css" href="{% url 'colors' %}"/>
 
-    <div class="container">
-      <div class="p-3"></div>
-      <h1>Sunny Side Savings</h1>
+    {# load custom css    #}
+    <link rel="stylesheet" href="{% static 'style.css' %}"/>
+    <title></title>
+</head>
+<body>
 
-      <button><i class="fa-solid fa-cart-shopping"></i></button>
-      <button><i class="fa-solid fa-plus"></i></button>
+{# Navbar #}
 
-      {% comment %} adding space padding {% endcomment %}
-      <div class="p-3"></div>
+<div class="container">
+    <div class="p-3"></div>
+    <h1>Sunny Side Savings</h1>
 
-      {% comment %} search bar {% endcomment %}
-      <form class="d-flex">
+    <button><i class="fa-solid fa-cart-shopping"></i></button>
+    <button><i class="fa-solid fa-plus"></i></button>
+
+    {# adding space padding #}
+    <div class="p-3"></div>
+
+    {# search bar #}
+    <form class="d-flex">
         <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
         />
         <button class="btn btn-outline-success" type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
         </button>
         {% block content %}{% endblock %}
-      </form>
-    </div>
-  </body>
+    </form>
+</div>
+</body>
 </html>
