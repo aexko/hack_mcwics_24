@@ -1,11 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# import requests
-
-# Create your views here.
-# def testing(request):
-#     return HttpResponse("Hello, world. You're at the price_checker index.")
+from django.template import loader
 
 # return the index page
 def priceCheckerPage(request):
-    return render(request, "index.html")
+    template = loader.get_template('index.html')
+    return HttpResponse(template.render())
