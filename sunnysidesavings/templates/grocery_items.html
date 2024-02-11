@@ -2,5 +2,24 @@
 {% for item in grocery_items %}
     {# show the items #}
     <li>{{ item.name }}</li>
+   {# sub-list #}
+    <ul>
+        <li>Price: {{ item.price }}</li>
+        <li>Date start: {{ item.date_start }}</li>
+        <li>Date end: {{ item.date_end }}</li>
+        <li>Quantity: {{ item.quantity }}</li>
+        <li>Price per unit: {{ item.price_per_unit }}</li>
+        <li>Image: {{ item.image }}</li>
+        <li>Grocery store: {{ item.grocery_store }}</li>
+{#    #}
+{#      price = models.DecimalField(max_digits=5, decimal_places=2)#}
+{#    date_start = models.DateField()#}
+{#    date_end = models.DateField()#}
+{#    quantity = models.IntegerField()#}
+{#    price_per_unit = models.DecimalField(max_digits=5, decimal_places=2)#}
+{#    image = models.ImageField(upload_to="images/", blank=True)#}
+{#    grocery_store = models.ForeignKey("GroceryStore", on_delete=models.CASCADE, null=True, blank=True)#}
+
+    </ul>
 
 {% endfor %}
