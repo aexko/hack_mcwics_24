@@ -27,8 +27,8 @@ The intricacies of what goes into a website so that the user is not overwhelmed 
 
 ## Built With
 
-- Bootstrap
 - Django
+- Bootstrap
 - Figma
 
 ## Try it out
